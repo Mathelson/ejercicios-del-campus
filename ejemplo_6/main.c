@@ -18,9 +18,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 void tomaDeVectores(int vector[],int tamanioDelVector);
-void imprimeVectorDeEnteros(int vector[],int tamanioDelVector);
-int numeroMaximoDeEnteros(int vector[],int tamanioDelVector);
-//void mostrarVectorDeEnteros( int vector[]);
+void imprimeVectorInt(int vector[],int tamanioDelVector);
+int numeroMaximoDentroDelVector(int vector[],int tamanioDelVector);
+int numeroMinimoDentroDelVector(int vector[],int tamanioDelVector);
+void mostrarVector(int vector[]);
 
 int main()
 {
@@ -32,54 +33,67 @@ int main()
    /** for(int i=0;i<5;i++){
         printf("\n%d",vector[i]);
     }*/
+    int numeroMenor;
+    int numeroMayor;
     int numeros[5];
-    int maximo;
     tomaDeVectores(numeros,5);
-    imprimeVectorDeEnteros(numeros,5);
-    maximo = numeroMaximoDeEnteros(numeros,5);
-    printf("El numero mas grande es: %d ",maximo);
+    imprimeVectorInt(numeros,5);
+    numeroMayor=numeroMaximoDentroDelVector(numeros,5);
+    numeroMenor=numeroMinimoDentroDelVector(numeros,5);
+    printf("\nEl numero  mayor es  : %d\nEl numero mas chico es : %d ",numeroMayor,numeroMenor);
 
     return 0;
 }
 void tomaDeVectores(int vector[],int tamanioDelVector)
 {
-
-    for(int i=0; i< tamanioDelVector;i++){
-        printf("Ingrese 5 numeros : \n");
+    int i;
+    for( i=0; i< tamanioDelVector;i++){
+        printf("Ingrese 5 numeros");
         scanf("\n%d",&vector[i]);
 }
 
 }
-void imprimeVectorDeEnteros(int vector[],int tamanioDelVector)
+void imprimeVectorInt(int vector[],int tamanioDelVector)
 {
-     for(int i=0;i<tamanioDelVector;i++)
-    {
-        printf("\n%d",vector[i]);
-      // mostrarVector(vector[i]);
+    int i;
+     for( i=0;i<tamanioDelVector;i++){
+        mostrarVector(vector[i]);
     }
 
 }
-int numeroMaximoDeEnteros(int vector[],int tamanioDelVector)
+int numeroMaximoDentroDelVector(int vector[],int tamanioDelVector)
 {
     int maximo;
-   // int flag=0;
-
+    int flag=0;
     for(int i=0;i<tamanioDelVector;i++)
     {
-        if(maximo<vector[i])
+        if(maximo<vector[i] || flag==0)
         {
             maximo=vector[i];
-     //       flag=1;
-
+            flag=1;
         }
-
     }
-     return maximo;
+      return maximo;
+}
+int numeroMinimoDentroDelVector(int vector[],int tamanioDelVector)
+{
+    int minimo;
+    int flag=0;
+    for(int i=0;i<tamanioDelVector;i++)
+    {
+        if(minimo>vector[i] || flag==0)
+        {
+            minimo=vector[i];
+            flag=1;
+        }
+    }
+      return minimo;
 
 }
-//void mostrarVectorDeEnteros (int vector[])
-//{
+void mostrarVector(int vector[])
+{
 
-//    printf("\n%d",vector);
-//}
+    printf("\n%d\n", vector);
+}
+
 
