@@ -22,6 +22,7 @@ void imprimeVectorInt(int vector[],int tamanioDelVector);
 int numeroMaximoDentroDelVector(int vector[],int tamanioDelVector);
 int numeroMinimoDentroDelVector(int vector[],int tamanioDelVector);
 void mostrarVector(int vector[]);
+float calcularPromedio(int numeros[]);
 
 int main()
 {
@@ -36,13 +37,30 @@ int main()
     int numeroMenor;
     int numeroMayor;
     int numeros[5];
+    float promedios[5];
+
     tomaDeVectores(numeros,5);
     imprimeVectorInt(numeros,5);
     numeroMayor=numeroMaximoDentroDelVector(numeros,5);
     numeroMenor=numeroMinimoDentroDelVector(numeros,5);
     printf("\nEl numero  mayor es  : %d\nEl numero mas chico es : %d ",numeroMayor,numeroMenor);
+    promedios[5]=calcularPromedio( numeros,5);
+    printf("\nEl promedio es %.2f ",promedios);
 
     return 0;
+}
+float calcularPromedio(int numeros[])
+{
+    float promedio;
+    int sumador=0;
+    for(int i=0; i<5;i++)
+    {
+        //promedio=(float)numeros/5;
+        sumador=sumador+numeros[i];
+
+    }
+    promedio=(float)sumador/5;
+    return promedio;
 }
 void tomaDeVectores(int vector[],int tamanioDelVector)
 {
