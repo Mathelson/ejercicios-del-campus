@@ -93,7 +93,7 @@ int numeroMinimoDentroDelVector(int vector[],int tamanioDelVector)
 void mostrarVector(int vector[])
 {
 
-    printf("\n%d\n", vector);
+    printf("\n%d\n", vector);//Se agrego esto!!
 }
 
 
