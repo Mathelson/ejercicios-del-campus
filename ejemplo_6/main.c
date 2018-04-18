@@ -18,8 +18,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 void tomaDeVectores(int vector[],int tamanioDelVector);
-void imprimeVector(int vector[],int tamanioDelVector);
-int numeroMaximo(int vector[],int tamanioDelVector);
+void imprimeVectorDeEnteros(int vector[],int tamanioDelVector);
+int numeroMaximoDeEnteros(int vector[],int tamanioDelVector);
+//void mostrarVectorDeEnteros( int vector[]);
 
 int main()
 {
@@ -32,9 +33,11 @@ int main()
         printf("\n%d",vector[i]);
     }*/
     int numeros[5];
+    int maximo;
     tomaDeVectores(numeros,5);
-    imprimeVector(numeros,5);
-    numeroMaximo(numeros,5);
+    imprimeVectorDeEnteros(numeros,5);
+    maximo = numeroMaximoDeEnteros(numeros,5);
+    printf("El numero mas grande es: %d ",maximo);
 
     return 0;
 }
@@ -42,31 +45,41 @@ void tomaDeVectores(int vector[],int tamanioDelVector)
 {
 
     for(int i=0; i< tamanioDelVector;i++){
-        printf("Ingrese 5 numeros");
+        printf("Ingrese 5 numeros : \n");
         scanf("\n%d",&vector[i]);
 }
 
 }
-void imprimeVector(int vector[],int tamanioDelVector)
+void imprimeVectorDeEnteros(int vector[],int tamanioDelVector)
 {
-     for(int i=0;i<tamanioDelVector;i++){
+     for(int i=0;i<tamanioDelVector;i++)
+    {
         printf("\n%d",vector[i]);
+      // mostrarVector(vector[i]);
     }
 
 }
-int numeroMaximo(int vector[],int tamanioDelVector)
+int numeroMaximoDeEnteros(int vector[],int tamanioDelVector)
 {
     int maximo;
-    int flag=0;
+   // int flag=0;
 
     for(int i=0;i<tamanioDelVector;i++)
     {
         if(maximo<vector[i])
         {
             maximo=vector[i];
-            flag=1;
-            return maximo;
+     //       flag=1;
+
         }
+
     }
+     return maximo;
+
 }
+//void mostrarVectorDeEnteros (int vector[])
+//{
+
+//    printf("\n%d",vector);
+//}
 
